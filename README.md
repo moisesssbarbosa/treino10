@@ -21,7 +21,7 @@ O **Wedding Pass** é uma aplicação completa voltada para o gerenciamento de e
 
 ### Configurando o Back-end
 
-Olhe o arquivo env.exemple para saber as variáveis de ambiente
+Olhe o arquivo exemplo.env para saber as variáveis de ambiente
 
 Abra o terminal na pasta do Back-end:
 
