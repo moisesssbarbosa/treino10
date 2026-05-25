@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
@@ -22,17 +22,16 @@ async function main() {
   });
 
   // 🔥 A MÁGICA DA AUTOMAÇÃO: GERANDO OS 30 CONVIDADOS COM UM LAÇO FOR
-  const listaConvidados = [];
+  const listaConvidados: Prisma.ConvidadoCreateManyInput[] = [] ;
 
   for (let i = 1; i <= 30; i++) {
     // Garante que o CPF tenha sempre 11 dígitos preenchendo com zeros à esquerda (ex: 00000000001)
     const cpfFake = String(i).padStart(11, '0'); 
-    
     listaConvidados.push({
       nome: `Convidado${i}`,
       sobrenome: `Sobrenome${i}`,
       email: `convidado${i}@email.com`,
-      mesa: (i % 30) + 1, // Distribui as mesas entre 1 e 5
+      mesa: (i % 5) + 1, // Distribui as mesas entre 1 e 5
       cpf: cpfFake,
       telefone: `5199999${String(i).padStart(4, '0')}`, // Telefones dinâmicos válidos
       status_checkin: i % 2 === 0 // Metade dos convidados (os pares) começam com check-in feito
@@ -48,5 +47,10 @@ async function main() {
 }
 
 main()
-  .catch((e) => { console.error(e); process.exit(1); })
-  .finally(async () => { await prisma.$disconnect(); });
+  .catch((e) => {
+    console.error(e);
+    throw e;
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
