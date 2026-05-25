@@ -1,6 +1,6 @@
 # 🌊 Wedding Pass — Sistema de Gestão e Check-in de Convidados
 
-O **Wedding Pass** é uma aplicação completa voltada para o gerenciamento de eventos e controle de presença em tempo real. O sistema conta com uma API robusta no Back-end e uma interface moderna e responsiva utilizando o efeito *Glassmorphic* no Front-end.
+O **Wedding Pass** é uma aplicação completa voltada para o gerenciamento de eventos e controle de presença em tempo real. O sistema conta com uma API robusta no Back-end e uma interface moderna e responsiva utilizando o efeito *Glassmorphic* no Front-end. (a ser aplicado...)
 
 ---
 
